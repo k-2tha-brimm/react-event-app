@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import EventItem from './EventItem.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      events: null
+    }
+  }
+
+  componentDidMount() {
+    fetch("http://api.my-events.site/api/v1/events/?limit=20")
+      .then(res => res.json())
+      .then(data => this.setState({events: data.results}))
+  }
+
+  render () {
+
+    if(!this.state.events) {
+      return null;
+    }
+
+    let events = (
+      this.state.events.map((event, idx) => (
+        <li key={idx} style={{listStyle: "none"}}><EventItem event={event} /></li>
+      ))
+    )
+
+    return (
+      <div className="App">
+        <div className="item-container">
+          {events}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
