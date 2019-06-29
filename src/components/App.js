@@ -18,12 +18,14 @@ const App = inject("appStore") (
       componentWillMount() {
         this.props.appStore.fetchEvents(this.props.appStore.offset)
           .then(() => this.setState({ loading: false}));
+        window.scrollTo(0, 0);
       }
 
 
       updateEvents(field) {
         if(field === 'next') {
           this.props.appStore.increaseOffset();
+          this.componentWillMount();
         } else {
           if(this.props.appStore.offset > 0) {
             this.props.appStore.decreaseOffset();
