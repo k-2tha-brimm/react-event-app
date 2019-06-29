@@ -8,8 +8,16 @@ const App = inject("appStore") (
   observer(
     class App extends React.Component {
 
+      constructor(props) {
+        super(props);
+        this.state = {
+          loading: this.props.appStore.loading
+        }
+      }
+
       componentWillMount() {
-        this.props.appStore.fetchEvents(this.props.appStore.offset);
+        this.props.appStore.fetchEvents(this.props.appStore.offset)
+          .then(() => this.setState({ loading: false}));
       }
 
 
@@ -25,6 +33,13 @@ const App = inject("appStore") (
     
       render () {
 
+        console.log(this.props.appStore.events.length);
+
+        if(this.props.appStore.loading) {
+          return (
+            <div className="loading">Loading...</div>
+          )
+        }
         let events = (
           this.props.appStore.events.map(event => (
             <li key={event.id} style={{listStyle: "none"}}><EventItem event={event} /></li>
