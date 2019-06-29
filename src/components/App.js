@@ -1,12 +1,14 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import EventIndex from './EventIndex.js';
-import EventDetails from './EventItem.js';
+import EventDetails from './EventDetails.js';
 
 const App = () => (
     <div className="main">
-        <Route path="/" component={EventIndex} />
-        <Route path="/events/:eventId" component={EventDetails} />
+        <Switch>
+            <Route exact path="/events/:eventId" component={EventDetails} />
+            <Route path="/" component={EventIndex} />
+        </Switch>
     </div>
 )
 

@@ -11,7 +11,9 @@ import AppStore from './stores/AppStore.js';
 const appStore = new AppStore();
 
 ReactDOM.render(
-    <Provider appStore={appStore}>
+    <Provider 
+    appStore={appStore}
+    displayStore={appStore.displayStore}>
         <BrowserRouter>
             <App />
         </BrowserRouter>
