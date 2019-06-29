@@ -25,11 +25,11 @@ const EventDetails = inject("displayStore") (
                     )
                 }
 
-                console.log(this.props);
-                console.log(this.props.displayStore);
-                console.log(this.props.match.params.eventId);
                 return (
-                    <div>HELLO</div>
+                    <div className="details-container" id="details">
+                        <h2>{this.props.displayStore.event.name}</h2>
+                        {this.props.displayStore.event.description_plain}
+                    </div>
                 )
             }
         }
