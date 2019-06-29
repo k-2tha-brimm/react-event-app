@@ -18,6 +18,12 @@ const EventIndex = inject("appStore") (
       componentWillMount() {
         this.props.appStore.fetchEvents(this.props.appStore.offset)
           .then(() => this.setState({ loading: false}));
+
+        let child = document.getElementById("page-error");
+        if(child) {
+          document.getElementById("app").removeChild(child);
+        }
+
         window.scrollTo(0, 0);
       }
 
@@ -26,9 +32,16 @@ const EventIndex = inject("appStore") (
         if(field === 'next') {
           this.props.appStore.increaseOffset();
           this.componentWillMount();
-        } else {
+        } else if(field === 'prev') {
           if(this.props.appStore.offset > 0) {
             this.props.appStore.decreaseOffset();
+            this.componentWillMount();
+          } else {
+            const el = document.createElement("LI");
+            el.setAttribute("id", "page-error");
+            const text = document.createTextNode("You are already on page one!");
+            el.appendChild(text);
+            document.getElementById("app").appendChild(el);
           }
         }
       }
@@ -48,11 +61,11 @@ const EventIndex = inject("appStore") (
         )
     
         return (
-          <div className="App">
+          <div className="App" id="app">
             <div className="item-container">
               {events}
             </div>
-              <button type="button" onClick={() => this.updateEvents('prev')}>Next</button>
+              <button type="button" onClick={() => this.updateEvents('prev')}>Prev</button>
               <button type="button" onClick={() => this.updateEvents('next')}>Next</button>
           </div>
         );
