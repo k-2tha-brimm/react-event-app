@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './css/index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
@@ -11,7 +12,9 @@ const appStore = new AppStore();
 
 ReactDOM.render(
     <Provider appStore={appStore}>
-        <App />
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </Provider>, 
     document.getElementById('root')
 );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function EventItem({event}) {
 
@@ -22,7 +23,7 @@ function EventItem({event}) {
     return (
         <div className="item-container">
             <h3>{event.name}</h3>
-            {image()}
+            <Link to={`/events/${event.id}`} event={event} >{image()}</Link>
         </div>
     )
 
