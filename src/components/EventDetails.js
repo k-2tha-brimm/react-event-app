@@ -1,5 +1,6 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 
 const EventDetails = inject("displayStore") (
@@ -25,10 +26,11 @@ const EventDetails = inject("displayStore") (
                     )
                 }
 
+                const html = this.props.displayStore.event.description_html
+
                 return (
                     <div className="details-container" id="details">
-                        <h2>{this.props.displayStore.event.name}</h2>
-                        {this.props.displayStore.event.description_plain}
+                        <div>{ReactHtmlParser(html)}</div>
                     </div>
                 )
             }
