@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
+import ReactHtmlParser from 'react-html-parser';
 
 
-const EventDetails = inject("displayStore") (
+const EventInfo = inject("displayStore") (
     observer (
-        class EventDetails extends React.Component {
+        class EventInfo extends React.Component {
             
             constructor(props) {
                 super(props);
@@ -26,10 +26,11 @@ const EventDetails = inject("displayStore") (
                     )
                 }
 
+                const html = this.props.displayStore.event.description_html
+
                 return (
                     <div className="details-container" id="details">
-                         <li>{this.props.displayStore.event.name}</li>
-                         <p>Click here to go to the event page: <Link to={`/events/${this.props.match.params.eventId}/info`} event={this.props.displayStore.event}>Event Page</Link></p>
+                         <div>{ReactHtmlParser(html)}</div>
                     </div>
                 )
             }
@@ -37,4 +38,4 @@ const EventDetails = inject("displayStore") (
     )
 )
 
-export default EventDetails;
+export default EventInfo;

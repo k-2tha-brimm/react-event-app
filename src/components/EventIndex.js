@@ -38,10 +38,15 @@ const EventIndex = inject("appStore") (
             this.componentWillMount();
           } else {
             const el = document.createElement("LI");
-            el.setAttribute("id", "page-error");
-            const text = document.createTextNode("You are already on page one!");
-            el.appendChild(text);
-            document.getElementById("app").appendChild(el);
+
+            let child = document.getElementById("page-error");
+            
+            if(!child) {
+              el.setAttribute("id", "page-error");
+              const text = document.createTextNode("You are already on page one!");
+              el.appendChild(text);
+              document.getElementById("app").appendChild(el);
+            }
           }
         }
       }
