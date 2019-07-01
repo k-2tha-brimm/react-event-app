@@ -5,6 +5,10 @@ export default class AppStore {
     events = [];
     offset = 0;
     loading = true;
+    modal = {
+        show: false,
+        body: null
+    };
     displayStore = new DisplayStore();
 
     fetchEvents = action(async (offset) => {
@@ -15,6 +19,16 @@ export default class AppStore {
             this.loading = false;
         });
     })
+
+    openModal = action(body => {
+        this.modal.show = true;
+        this.modal.body = body;
+    });
+
+    closeModal = action(body => {
+        this.modal.show = false;
+        this.modal.body = null;
+    });
 
     increaseOffset = action(async () => {
         this.offset += 20;
