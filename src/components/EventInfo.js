@@ -2,6 +2,15 @@ import React from 'react';
 import { inject, observer } from 'mobx-react';
 import ReactHtmlParser from 'react-html-parser';
 
+const Deets = {
+    textAlign: "center",
+    marginBottom: "45px",
+    position: "relative",
+    top: "100px",
+    left: 0,
+    alignContent: "center",
+    margin: "auto"
+}
 
 const EventInfo = inject("displayStore") (
     observer (
@@ -29,7 +38,7 @@ const EventInfo = inject("displayStore") (
                 const html = this.props.displayStore.event.description_html
 
                 return (
-                    <div className="details-container" id="details">
+                    <div className="details-container" id="details" style={Deets}>
                          <div>{ReactHtmlParser(html)}</div>
                     </div>
                 )
