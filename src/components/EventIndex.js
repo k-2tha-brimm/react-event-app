@@ -3,6 +3,28 @@ import '../css/App.css';
 import EventItem from './EventItem.js'
 import { inject, observer } from 'mobx-react';
 
+const IndexStyling = {
+  margin: "8%",
+  marginBottom: "1%",
+  marginTop: "20px",
+  padding: "10px",
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "space-evenly"
+}
+
+const LIStyling = {
+  width: "24%",
+  height: "400px",
+  maxWidth: "24%",
+  maxHeight: "400px",
+  listStyle: "none",
+  border: "1px solid red",
+  margin: "5px 2px 5px 2px",
+  borderRadius: "5px",
+  backgroundColor: "grey"
+}
+
 
 const EventIndex = inject("appStore") (
   observer(
@@ -61,15 +83,19 @@ const EventIndex = inject("appStore") (
 
         let events = (
           this.props.appStore.events.map(event => (
-            <li key={event.id} style={{listStyle: "none"}}><EventItem event={event} /></li>
+            <li key={event.id} 
+                style={LIStyling}
+                className="item">
+                                  <EventItem event={event} />
+            </li>
           ))
         )
     
         return (
           <div className="App" id="app">
-            <div className="item-container">
+            <ul className="item-index-container" style={IndexStyling}>
               {events}
-            </div>
+            </ul>
               <button type="button" onClick={() => this.updateEvents('prev')}>Prev</button>
               <button type="button" onClick={() => this.updateEvents('next')}>Next</button>
           </div>

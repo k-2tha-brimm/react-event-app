@@ -40,7 +40,7 @@ const EventInfo = inject("displayStore") (
                 const html = this.props.displayStore.event.description_html
 
                 return (
-                    <div className="details-container" id="details" style={Deets}>
+                    <div className="info-container" id="details" style={Deets}>
                          <div>{ReactHtmlParser(html)}</div>
                     </div>
                 )
