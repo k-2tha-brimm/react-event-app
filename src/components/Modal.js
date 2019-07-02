@@ -12,10 +12,17 @@ class Modal extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.setState({
+            name: this.props.event.category.name
+        });
+    }
+
     componentDidUpdate(prevProps, prevState) {
         if(prevState.show !== this.props.show) {
             this.setState({
-                show: this.props.show
+                show: this.props.show,
+                name: this.props.event.category.name
             });
         }
     }
