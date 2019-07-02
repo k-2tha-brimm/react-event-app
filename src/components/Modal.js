@@ -27,6 +27,17 @@ const Background = {
     border: "2px solid rgb(100, 65, 165)",
   }
 
+  const UpdateButton = {
+    width: "60%",
+    height: "40px",
+    marginTop: "20px",
+    fontWeight: 600,
+    borderRadius: 5,
+    color: "white",
+    background: "#6441A3",
+    fontSize: 12
+}
+
 
 
 
@@ -120,7 +131,8 @@ class Modal extends React.Component {
                     <br />
                     <button 
                         type="button"
-                        onClick={() => this.handleSubmit()}>
+                        onClick={() => this.handleSubmit()}
+                        style={UpdateButton}>
                         Update Category</button>
                 </div>
             </div>

@@ -45,6 +45,17 @@ const ButtonStyle = {
     borderRadius: 5,
     marginRight: "5px"
 }
+
+const EditButton = {
+    width: "80px",
+    height: "20px",
+    marginLeft: "20px",
+    fontWeight: 600,
+    borderRadius: 5,
+    color: "white",
+    background: "#6441A3",
+    fontSize: 12
+}
 //
 // End Styling //
 
@@ -137,7 +148,7 @@ const EventDetails = inject("appStore", "displayStore") (
 
                                 </h2>
 
-                                <p style={InfoStyle}>Category: {this.state.cat.name} <button onClick={() => this.openModal()}>Edit</button></p>
+                                <p style={InfoStyle}>Category: {this.state.cat.name} <button style={EditButton} onClick={() => this.openModal()}>Edit</button></p>
                                 <p style={InfoStyle}>By {this.state.event.organizer.name}</p>
                                 <p style={InfoStyle}>${Math.trunc(this.state.event.min_ticket_price)} - ${Math.trunc(this.state.event.max_ticket_price)}</p>
                             </div>
