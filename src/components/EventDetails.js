@@ -35,7 +35,6 @@ const EventDetails = inject("appStore", "displayStore") (
                         event: this.props.displayStore.event, 
                         loading: false,
                         cat: this.props.displayStore.event.category }))
-                console.log(this.state);
             }
 
             openModal() {
@@ -50,7 +49,7 @@ const EventDetails = inject("appStore", "displayStore") (
 
             render () {
 
-                if(!this.state.event) {
+                if(!this.state.event || !this.state.cat) {
                     return null;
                 }
 
@@ -60,7 +59,6 @@ const EventDetails = inject("appStore", "displayStore") (
                     )
                 }
 
-                console.log(this.state.event.name);
 
                 return (
                     <div className="details-container" id="details" style={DetailComponent}>

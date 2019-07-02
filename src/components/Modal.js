@@ -34,7 +34,6 @@ class Modal extends React.Component {
     }
 
     update(field) {
-        console.log(this.state.name);
         return e => this.setState({
             [field]: e.currentTarget.value
         });
@@ -57,15 +56,13 @@ class Modal extends React.Component {
             fetch(url)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     this.props.handleStateChange(data);
-
                     this.setState({
                         name: data.name,
                         show: false
                     });
                 })
-        }).catch(err => console.log(err));
+        }).catch(err => err);
     }
 
     render() {
