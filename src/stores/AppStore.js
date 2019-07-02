@@ -5,24 +5,15 @@ export default class AppStore {
     events = [];
     offset = 0;
     loading = true;
-    show = false;
     displayStore = new DisplayStore();
 
-    fetchEvents = action(async (offset) => {
+    fetchEvents = action(async offset => {
         const response = await fetch(`http://api.my-events.site/api/v1/events/?limit=20&offset=${offset}`);
         const json = await response.json();
         runInAction(() => {
             this.events = json.results;
             this.loading = false;
         });
-    })
-
-    openModal = action(() => {
-        this.show = true;
-    });
-
-    closeModal = action(() => {
-        this.show = false;
     });
 
     increaseOffset = action(async () => {

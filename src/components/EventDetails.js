@@ -44,15 +44,21 @@ const EventDetails = inject("appStore", "displayStore") (
                     )
                 }
 
+                console.log(this.props.displayStore.event.category.name);
+
                 return (
                     <div className="details-container" id="details" style={DetailComponent}>
-                        <Modal show={this.state.show} />
+
+                        <Modal show={this.state.show} event={this.props.displayStore.event}/>
+
                         <h2 style={{fontSize: 32, fontWeight: 600}}>{this.props.displayStore.event.name}</h2>
+                        
                         <img 
                             src={this.props.displayStore.event.logo_uri}
                             style={{borderRadius: 5, border: "1px solid black"}} 
                             alt={this.props.displayStore.event.name} 
                             />
+
                         <p>Category: {this.props.displayStore.event.category.name} <button onClick={() => this.openModal()}>Edit</button></p>
                         <p>Organizer: {this.props.displayStore.event.organizer.name}</p>
                         <p>Click here to go to the event page: <Link to={`/events/${this.props.match.params.eventId}/info`} event={this.props.displayStore.event}>Event Page</Link></p>
