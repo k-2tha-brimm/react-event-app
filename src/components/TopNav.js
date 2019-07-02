@@ -31,7 +31,7 @@ export default function TopNav() {
         <div style={NavStyle}>
             <ul style={UlStyle}>
                 <li style={ListEl}><Link style={{ textDecoration: "none" }} className="nav-link" to="/">Events Index</Link></li>
-                <li style={ListEl}><Link style={{ textDecoration: "none" }} className="nav-link" to="/">Learn More</Link></li>
+                <li style={ListEl}><Link style={{ textDecoration: "none" }} className="nav-link" to="/who_i_am">Learn More</Link></li>
             </ul>
         </div>
     )
