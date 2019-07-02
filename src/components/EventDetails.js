@@ -22,7 +22,8 @@ const EventDetails = inject("appStore", "displayStore") (
                 super(props);
                 this.state = {
                     loading: this.props.displayStore.loading,
-                    show: this.props.appStore.show
+                    show: this.props.appStore.show,
+                    update: false
                 }
             }
 
@@ -49,7 +50,7 @@ const EventDetails = inject("appStore", "displayStore") (
                 return (
                     <div className="details-container" id="details" style={DetailComponent}>
 
-                        <Modal show={this.state.show} event={this.props.displayStore.event}/>
+                        <Modal show={this.state.show} event={this.props.displayStore.event} />
 
                         <h2 style={{fontSize: 32, fontWeight: 600}}>{this.props.displayStore.event.name}</h2>
                         

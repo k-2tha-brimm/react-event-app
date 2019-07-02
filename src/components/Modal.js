@@ -7,7 +7,8 @@ class Modal extends React.Component {
         super(props);
         this.state = {
             show: null,
-            name: this.props.event.category.name
+            name: this.props.event.category.name,
+            event: this.props.event
         }
     }
 
@@ -16,7 +17,7 @@ class Modal extends React.Component {
             this.setState({
                 show: this.props.show
             });
-        };
+        }
     }
 
     closeModal() {
@@ -44,10 +45,17 @@ class Modal extends React.Component {
                 "Authorization": "Token 934845d84fdd7b5c3ecf4129e2d8b774d6c84c87",
                 "Content-Type": 'application/json'
             }
-        }).then(() => {
-            this.setState({
-                show: false
-            });
+        }).then(res => {
+            let url = res.url;
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    this.setState({
+                        name: data.name,
+                        show: false
+                    });
+                })
         }).catch(err => console.log(err));
     }
 
