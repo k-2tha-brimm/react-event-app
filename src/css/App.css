@@ -77,3 +77,22 @@
 .nav-link:visited {
   color:black;
 }
+
+button:hover {
+  cursor: pointer;
+}
+
+.background-image {
+  background-image: url("https://i.ytimg.com/vi/ygPqPhHRMZo/hqdefault.jpg?custom=true&w=168&h=94&stc=true&jpg444=true&jpgq=90&sp=68&sigh=XY96H2M8MrkI6MIlWYTYkfObMLY");
+  height: 595px;
+  margin: -10px;
+  width: 102vw;
+  z-index: -100;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: -29%;
+  top: -6%;
+  -webkit-filter: blur(8px);
+}

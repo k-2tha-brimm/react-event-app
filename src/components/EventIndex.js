@@ -24,6 +24,17 @@ const LIStyling = {
   boxSizing: "border-box",
 }
 
+const NavButtons = {
+  width: 130,
+  height: 30,
+  background: "blue",
+  color: "white",
+  fontWeight: 600,
+  borderRadius: 7,
+  margin: "5px 40px 5px 40px",
+  fontSize: "16px"
+}
+
 
 const EventIndex = inject("appStore") (
   observer(
@@ -92,11 +103,25 @@ const EventIndex = inject("appStore") (
     
         return (
           <div className="App" id="app">
+
             <ul className="item-index-container" style={IndexStyling}>
               {events}
             </ul>
-              <button type="button" onClick={() => this.updateEvents('prev')}>Prev</button>
-              <button type="button" onClick={() => this.updateEvents('next')}>Next</button>
+
+              <button 
+                type="button" 
+                onClick={() => this.updateEvents('prev')}
+                style={NavButtons}>
+                  Prev
+              </button>
+
+              <button 
+                type="button" 
+                onClick={() => this.updateEvents('next')}
+                style={NavButtons}>
+                  Next
+              </button>
+
           </div>
         );
       }

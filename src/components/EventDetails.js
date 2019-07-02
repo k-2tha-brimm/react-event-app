@@ -2,6 +2,7 @@ import React from 'react';
 import { inject, observer } from 'mobx-react';
 import Modal from './Modal.js';
 import ReactHtmlParser from 'react-html-parser';
+import '../css/App.css';
 
 // Begin Styling //
 //
@@ -15,6 +16,7 @@ const DetailComponent = {
     height: "100%",
     border: "1px solid grey",
     borderRadius: 5,
+    background: "white"
 }
 
 const InfoStyle = {
@@ -93,6 +95,7 @@ const EventDetails = inject("appStore", "displayStore") (
 
                 return (
                     <div className="details-container" id="details" style={DetailComponent}>
+                        <div className="background-image"></div>
 
                         <Modal show={this.state.show} event={this.state.event} handleStateChange={this.handleStateChange} />
 
