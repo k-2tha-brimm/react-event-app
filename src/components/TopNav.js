@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../css/App.css'
 
 const NavStyle = {
     display: "flex",
@@ -15,7 +16,7 @@ const NavStyle = {
 const ListEl = {
     listStyle: "none",
     fontSize: "14px",
-    margin: "10px"
+    margin: "10px",
 }
 
 const UlStyle = {
@@ -29,8 +30,8 @@ export default function TopNav() {
     return (
         <div style={NavStyle}>
             <ul style={UlStyle}>
-                <li style={ListEl}><Link to="/">Events Index</Link></li>
-                <li style={ListEl}><Link to="/">Learn More</Link></li>
+                <li style={ListEl}><Link style={{ textDecoration: "none" }} className="nav-link" to="/">Events Index</Link></li>
+                <li style={ListEl}><Link style={{ textDecoration: "none" }} className="nav-link" to="/">Learn More</Link></li>
             </ul>
         </div>
     )

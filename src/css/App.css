@@ -64,3 +64,16 @@
     min-width: 80%;
   }
 }
+
+.item:hover {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.headline:visited {
+  color:black;
+}
+
+.nav-link:visited {
+  color:black;
+}

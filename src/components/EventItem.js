@@ -46,14 +46,24 @@ function EventItem({event}) {
     return (
         <div className="item-container">
             <Link to={`/events/${event.id}`} event={event} >{image()}</Link>
-            <h3 style={{
-                marginTop: "2px",
-                marginLeft: "8px",
-                textAlign: "left"
-            }}>
-                {event.name}
-            </h3>
+            <Link to={`/events/${event.id}`} 
+                  event={event}
+                  className="headline"
+                  style={{
+                        textDecoration: "none",
+                        font: "black"
+                    }}>
+
+                    <h3 style={{
+                        marginTop: "2px",
+                        marginLeft: "8px",
+                        textAlign: "left"
+                    }}>
+                        {event.name}
+                    </h3>
+            </Link>
             <p style={EventStyle}>Event Date: {parseDate(event.start_time).date}</p>
+            <p style={EventStyle}>Event starts at {parseDate(event.start_time).time}</p>
             <p style={EventStyle}>Tickets start at ${Math.trunc(event.min_ticket_price)}</p>
         </div>
     )

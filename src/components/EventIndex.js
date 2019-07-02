@@ -19,10 +19,9 @@ const LIStyling = {
   maxWidth: "24%",
   maxHeight: "400px",
   listStyle: "none",
-  border: "1px solid red",
   margin: "5px 2px 5px 2px",
   borderRadius: "5px",
-  backgroundColor: "grey"
+  boxSizing: "border-box",
 }
 
 
