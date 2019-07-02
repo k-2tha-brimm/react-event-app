@@ -12,6 +12,8 @@ const Deets = {
     margin: "auto"
 }
 
+
+
 const EventInfo = inject("displayStore") (
     observer (
         class EventInfo extends React.Component {

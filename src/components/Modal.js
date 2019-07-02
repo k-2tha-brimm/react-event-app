@@ -1,5 +1,34 @@
 import React from 'react';
-import '../css/Modal.css';
+
+const Background = {
+    position: "fixed",
+    display: "flex",
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    background: "rgba(0, 0, 0, 0.7)",
+    zIndex: 10,
+  }
+  
+  const Child = {
+    boxSizing: "border-box",
+    borderRadius: "6px",
+    background: "white",
+    width: "440px",
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    paddingLeft: "2rem",
+    paddingRight: "2rem",
+    paddingTop: "1rem",
+    paddingBottom: "3rem",
+    border: "2px solid rgb(100, 65, 165)",
+  }
+
+
+
 
 class Modal extends React.Component {
 
@@ -71,8 +100,13 @@ class Modal extends React.Component {
         }
 
         return (
-            <div className="modal-background" onClick={() => this.closeModal()}>
-                <div className="modal-child" onClick={e => e.stopPropagation()}>
+            <div className="modal-background"
+                 onClick={() => this.closeModal()}
+                 style={Background}>
+
+                <div className="modal-child" 
+                     onClick={e => e.stopPropagation()}
+                     style={Child}>
                     <h3>Oops. Looks Like We Made a Mistake!</h3>
                     <p>If you think that this event belongs in a different
                         category, please update it with the form below.

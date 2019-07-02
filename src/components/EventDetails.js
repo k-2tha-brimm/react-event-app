@@ -14,6 +14,7 @@ const DetailComponent = {
 }
 
 
+
 const EventDetails = inject("appStore", "displayStore") (
     observer (
         class EventDetails extends React.Component {
