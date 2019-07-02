@@ -21,6 +21,18 @@ function parseDate(date) {
 
 function EventItem({event}) {
 
+    function amPm() {
+        if(parseDate(event.start_time).time.split(":")[0] > 12) {
+            return (
+                "P.M."
+            )
+        } else {
+            return (
+                "A.M."
+            )
+        }
+    }
+
     function image() {
         if(event.organizer.logo_uri) {
             return (
@@ -62,8 +74,11 @@ function EventItem({event}) {
                         {event.name}
                     </h3>
             </Link>
-            <p style={EventStyle}>Event Date: {parseDate(event.start_time).date}</p>
-            <p style={EventStyle}>Event starts at {parseDate(event.start_time).time}</p>
+            <p style={EventStyle}>Event Date: {parseDate(event.start_time).date.split('-')[1]}/
+                                              {parseDate(event.start_time).date.split('-')[2]}/
+                                              {parseDate(event.start_time).date.split('-')[0]}</p>
+            <p style={EventStyle}>Event starts at {parseDate(event.start_time).time.split(":")[0]%12}:
+                                                  {parseDate(event.start_time).time.split(":")[1]} {amPm()}</p>
             <p style={EventStyle}>Tickets start at ${Math.trunc(event.min_ticket_price)}</p>
         </div>
     )
