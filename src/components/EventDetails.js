@@ -1,18 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 import Modal from './Modal.js';
 import ReactHtmlParser from 'react-html-parser';
 
+// Begin Styling //
+//
 const DetailComponent = {
     display: "block",
     position: "relative",
-    marginRight: "10%",
-    marginLeft: "10%",
+    marginRight: "18%",
+    marginLeft: "18%",
     textAlign: "center",
     marginTop: "8%",
-    padding: "10px",
     height: "100%",
+    border: "1px solid grey",
+    borderRadius: 5,
 }
 
 const InfoStyle = {
@@ -38,8 +40,11 @@ const ButtonStyle = {
     color: "white",
     fontWeight: 800,
     fontSize: 14,
-    borderRadius: 5
+    borderRadius: 5,
+    marginRight: "5px"
 }
+//
+// End Styling //
 
 
 
@@ -61,7 +66,8 @@ const EventDetails = inject("appStore", "displayStore") (
 
             componentWillMount() {
                 this.props.displayStore.fetchEvent(this.props.match.params.eventId)
-                    .then(res => this.setState({ 
+                    .then(() =>
+                        this.setState({ 
                         event: this.props.displayStore.event, 
                         loading: false,
                         cat: this.props.displayStore.event.category }))
@@ -101,7 +107,7 @@ const EventDetails = inject("appStore", "displayStore") (
                                 border: "1px solid black",
                                 top: 0,
                                 left: 0,
-                                float: "left"
+                                float: "left",
                             }} 
                             alt={this.state.event.name} 
                             width="60%"
@@ -129,14 +135,14 @@ const EventDetails = inject("appStore", "displayStore") (
                                 </h2>
 
                                 <p style={InfoStyle}>Category: {this.state.cat.name} <button onClick={() => this.openModal()}>Edit</button></p>
-                                <p style={InfoStyle}>Organizer: {this.state.event.organizer.name}</p>
-                                <p style={InfoStyle}>Click here to go to the event page: <Link to={`/events/${this.props.match.params.eventId}/info`} event={this.props.displayStore.event}>Event Page</Link></p>
+                                <p style={InfoStyle}>By {this.state.event.organizer.name}</p>
+                                <p style={InfoStyle}>${Math.trunc(this.state.event.min_ticket_price)} - ${Math.trunc(this.state.event.max_ticket_price)}</p>
                             </div>
                         </div>
 
                         <div style={{
                             height: "65px",
-                            width: "100%",
+                            width: "95%",
                             marginTop: "8px",
                             borderBottom: "1px solid grey",
                             padding: "10px",
@@ -148,7 +154,9 @@ const EventDetails = inject("appStore", "displayStore") (
                                 style={{
                                     textDecoration: "none",
                                     color: "white"
-                                }}>
+                                }}
+                                target="_blank"
+                                rel="noopener noreferrer">
                                     Get Tickets
                                 </a>
                             </button>
