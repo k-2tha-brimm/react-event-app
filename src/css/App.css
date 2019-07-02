@@ -94,5 +94,6 @@ button:hover {
   background-size: cover;
   left: -29%;
   top: -5%;
+  filter: blur(8px);
   -webkit-filter: blur(8px);
 }
