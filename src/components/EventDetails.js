@@ -90,7 +90,10 @@ const EventDetails = inject("appStore", "displayStore") (
 
                         <Modal show={this.state.show} event={this.state.event} handleStateChange={this.handleStateChange} />
 
-                        
+                        <div style={{
+                            height: "300px"
+                        }}>
+
                         <img 
                             src={this.state.event.logo_uri}
                             style={{ 
@@ -105,38 +108,40 @@ const EventDetails = inject("appStore", "displayStore") (
                             height="99%"
                             />
 
-                        <div style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            textAlign: "left",
-                            background: "#F7F9F9",
-                            height: "100%",
-                            borderTopRightRadius: "5px",
-                        }}>
-
-                            <h2 style={{ 
-                                fontSize: 32, 
-                                fontWeight: 600,
-                                marginLeft: "8px",
-                                marginBottom: "3px"
+                            <div style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                textAlign: "left",
+                                background: "#F7F9F9",
+                                height: "100%",
+                                borderTopRightRadius: "5px",
                             }}>
 
-                                {this.state.event.name}
+                                <h2 style={{ 
+                                    fontSize: 32, 
+                                    fontWeight: 600,
+                                    marginLeft: "8px",
+                                    marginBottom: "3px"
+                                }}>
 
-                            </h2>
+                                    {this.state.event.name}
 
-                            <p style={InfoStyle}>Category: {this.state.cat.name} <button onClick={() => this.openModal()}>Edit</button></p>
-                            <p style={InfoStyle}>Organizer: {this.state.event.organizer.name}</p>
-                            <p style={InfoStyle}>Click here to go to the event page: <Link to={`/events/${this.props.match.params.eventId}/info`} event={this.props.displayStore.event}>Event Page</Link></p>
+                                </h2>
+
+                                <p style={InfoStyle}>Category: {this.state.cat.name} <button onClick={() => this.openModal()}>Edit</button></p>
+                                <p style={InfoStyle}>Organizer: {this.state.event.organizer.name}</p>
+                                <p style={InfoStyle}>Click here to go to the event page: <Link to={`/events/${this.props.match.params.eventId}/info`} event={this.props.displayStore.event}>Event Page</Link></p>
+                            </div>
                         </div>
 
                         <div style={{
-                            height: "55px",
+                            height: "65px",
                             width: "100%",
                             marginTop: "8px",
                             borderBottom: "1px solid grey",
                             padding: "10px",
-                            margin: "auto"
+                            margin: "auto",
+                            textAlign: "right"
                         }}>
                             <button style={ButtonStyle}><a 
                                 href={this.state.event.uri}
