@@ -58,6 +58,8 @@ class Modal extends React.Component {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
+                    this.props.handleStateChange(data);
+
                     this.setState({
                         name: data.name,
                         show: false
