@@ -41,11 +41,11 @@ export default function WhoIAm() {
 
             <div>
                 <ul style={{display: "flex", justifyContent: "space-between", width: "80%", padding: 0, marginTop: "40px"}}>
-                    <li style={LIStyle}><a style={LIStyle} href="https://www.linkedin.com/in/kbrimm/" target="_blank" className="nav-link" >LinkedIn</a></li>
-                    <li style={LIStyle}><a style={LIStyle} href="https://www.facebook.com/kevin.brimmerman" target="_blank" className="nav-link" >Facebook</a></li>
-                    <li style={LIStyle}><a style={LIStyle} href="https://www.instagram.com/kev_cuddy/" target="_blank" className="nav-link" >Instagram</a></li>
-                    <li style={LIStyle}><a style={LIStyle} href="https://github.com/k-2tha-brimm" target="_blank" className="nav-link" >GitHub</a></li>
-                    <li style={LIStyle}><a style={LIStyle} href="https://kevykevbrimm.yelp.com " target="_blank" className="nav-link" >Yelp</a></li>
+                    <li style={LIStyle}><a style={LIStyle} href="https://www.linkedin.com/in/kbrimm/" target="_blank" rel="noopener noreferrer" className="nav-link" >LinkedIn</a></li>
+                    <li style={LIStyle}><a style={LIStyle} href="https://www.facebook.com/kevin.brimmerman" target="_blank" rel="noopener noreferrer" className="nav-link" >Facebook</a></li>
+                    <li style={LIStyle}><a style={LIStyle} href="https://www.instagram.com/kev_cuddy/" target="_blank" rel="noopener noreferrer" className="nav-link" >Instagram</a></li>
+                    <li style={LIStyle}><a style={LIStyle} href="https://github.com/k-2tha-brimm" target="_blank" rel="noopener noreferrer" className="nav-link" >GitHub</a></li>
+                    <li style={LIStyle}><a style={LIStyle} href="https://kevykevbrimm.yelp.com " target="_blank" rel="noopener noreferrer" className="nav-link" >Yelp</a></li>
                 </ul>
             </div>
         </div>
